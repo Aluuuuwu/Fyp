@@ -1,0 +1,111 @@
+Id,Email,What is your age?,What is your gender ?,What types of food do you normally eat?,How many calories do you approximately consume daily?,What is your Primary Goal ?,Do you have any Food Allergies ?,How active are you ?
+1,anonymous,18-24,Man,Moderately healthy ,1200-1800,Loose weight,Nut Free,Very Active
+2,anonymous,18-24,Man,Healthy ,Less than 1200,Gain weight ,Lactose Free,Lightly Active 
+3,anonymous,18-24,Woman,Healthy ,1800-2500,Build Muscle ,None,Very Active
+4,anonymous,18-24,Man,Healthy ,1200-1800,Build Muscle ,None,Very Active
+5,anonymous,25-34,Woman,Moderately healthy ,1200-1800,Loose weight,Lactose Free,Lightly Active 
+6,anonymous,25-34,Man,Healthy ,1800-2500,Loose weight,None,Moderately Active
+7,anonymous,Over 45,Woman,Healthy ,1200-1800,Loose weight,None,Moderately Active
+8,anonymous,18-24,Woman,Moderately healthy ,1200-1800,Loose weight,None,Moderately Active
+9,anonymous,18-24,Woman,Moderately healthy ,1800-2500,Eat Healthier ,Lactose Free,Moderately Active
+10,anonymous,18-24,Man,Healthy ,1800-2500,Build Muscle ,None,Very Active
+11,anonymous,25-34,Man,Healthy ,Less than 1200,Loose weight,None,Sedentary 
+12,anonymous,18-24,Man,Healthy ,Less than 1200,Loose weight,None,Sedentary 
+13,anonymous,18-24,Man,Healthy ,1800-2500,Build Muscle ,None,Very Active
+14,anonymous,25-34,Man,Moderately healthy ,1800-2500,Eat Healthier ,None,Moderately Active
+15,anonymous,18-24,Man,Moderately healthy ,1800-2500,Build Muscle ,None,Very Active
+16,anonymous,25-34,Man,Moderately healthy ,1800-2500,Build Muscle ,None,Moderately Active
+17,anonymous,18-24,Prefer not to say,Moderately healthy ,1200-1800,Build Muscle ,None,Sedentary 
+18,anonymous,25-34,Man,Healthy ,Less than 1200,Loose weight,Gluten-free,Sedentary 
+19,anonymous,18-24,Woman,Moderately healthy ,1200-1800,Gain weight ,Lactose Free,Lightly Active 
+20,anonymous,35-44,Non-binary,Special Diet,1800-2500,Build Muscle ,Soy Free,Moderately Active
+21,anonymous,Over 45,Prefer not to say,Fast Food ,More  than 2500,Eat Healthier ,None,Very Active
+22,anonymous,18-24,Woman,Healthy ,Less than 1200,Loose weight,Gluten-free,Very Active
+23,anonymous,25-34,Woman,Moderately healthy ,1200-1800,Eat Healthier ,None,Very Active
+24,anonymous,18-24,Woman,Moderately healthy ,1200-1800,Build Muscle ,Lactose Free,Moderately Active
+25,anonymous,18-24,Man,Moderately healthy ,Less than 1200,Gain weight ,Lactose Free,Moderately Active
+26,anonymous,25-34,Woman,Healthy ,Less than 1200,Build Muscle ,None,Moderately Active
+27,anonymous,35-44,Man,Fast Food ,1800-2500,Eat Healthier ,Nut Free,Moderately Active
+28,anonymous,35-44,Woman,Moderately healthy ,1800-2500,Gain weight ,Lactose Free,Moderately Active
+29,anonymous,18-24,Man,Healthy ,1200-1800,Gain weight ,None,Lightly Active 
+30,anonymous,18-24,Man,Moderately healthy ,1200-1800,Build Muscle ,Gluten-free,Sedentary 
+31,anonymous,25-34,Man,Fast Food ,Less than 1200,Gain weight ,None,Lightly Active 
+32,anonymous,18-24,Woman,Healthy ,1800-2500,Build Muscle ,None,Lightly Active 
+33,anonymous,25-34,Man,Moderately healthy ,Less than 1200,Build Muscle ,Soy Free,Lightly Active 
+34,anonymous,18-24,Man,Special Diet,Less than 1200,Build Muscle ,Nut Free,Lightly Active 
+35,anonymous,25-34,Man,Healthy ,1800-2500,Build Muscle ,Lactose Free,Very Active
+36,anonymous,18-24,Woman,Healthy ,1800-2500,Eat Healthier ,Nut Free,Moderately Active
+37,anonymous,35-44,Man,Fast Food ,1800-2500,Build Muscle ,None,Sedentary 
+38,anonymous,25-34,Woman,Fast Food ,Less than 1200,Loose weight,Gluten-free,Sedentary 
+39,anonymous,25-34,Woman,Moderately healthy ,Less than 1200,Gain weight ,Lactose Free,Sedentary 
+40,anonymous,18-24,Man,Moderately healthy ,Less than 1200,Eat Healthier ,Nut Free,Very Active
+41,anonymous,18-24,Man,Moderately healthy ,1200-1800,Build Muscle ,None,Moderately Active
+42,anonymous,18-24,Man,Moderately healthy ,1800-2500,Eat Healthier ,None,Very Active
+43,anonymous,25-34,Woman,Moderately healthy ,Less than 1200,Loose weight,Gluten-free,Lightly Active 
+44,anonymous,25-34,Woman,Moderately healthy ,Less than 1200,Gain weight ,Lactose Free,Lightly Active 
+45,anonymous,35-44,Man,Healthy ,1800-2500,Gain weight ,Lactose Free,Lightly Active 
+46,anonymous,35-44,Woman,Moderately healthy ,Less than 1200,Loose weight,Soy Free,Moderately Active
+47,anonymous,18-24,Woman,Moderately healthy ,1200-1800,Eat Healthier ,None,Lightly Active 
+48,anonymous,25-34,Man,Healthy ,Less than 1200,Gain weight ,Gluten-free,Lightly Active 
+49,anonymous,25-34,Woman,Moderately healthy ,1800-2500,Build Muscle ,None,Moderately Active
+50,anonymous,25-34,Woman,Healthy ,1800-2500,Eat Healthier ,Lactose Free,Moderately Active
+51,anonymous,25-34,Man,Moderately healthy ,1200-1800,Build Muscle ,None,Very Active
+52,anonymous,18-24,Man,Healthy ,1800-2500,Build Muscle ,None,Very Active
+53,anonymous,18-24,Man,Healthy ,More  than 2500,Build Muscle ,None,Moderately Active
+54,anonymous,18-24,Man,Moderately healthy ,1200-1800,Build Muscle ,None,Moderately Active
+55,anonymous,18-24,Woman,Healthy ,1200-1800,Loose weight,None,Lightly Active 
+56,anonymous,25-34,Man,Healthy ,1800-2500,Gain weight ,Gluten-free,Lightly Active 
+57,anonymous,25-34,Man,Fast Food ,More  than 2500,Gain weight ,Lactose Free,Very Active
+58,anonymous,18-24,Woman,Healthy ,1200-1800,Loose weight,Nut Free,Lightly Active 
+59,anonymous,Over 45,Woman,Healthy ,1200-1800,Loose weight,Nut Free,Moderately Active
+60,anonymous,35-44,Woman,Moderately healthy ,1800-2500,Eat Healthier ,None,Sedentary 
+61,anonymous,35-44,Woman,Special Diet,1800-2500,Build Muscle ,Soy Free,Sedentary 
+62,anonymous,18-24,Man,Fast Food ,Less than 1200,Eat Healthier ,None,Sedentary 
+63,anonymous,35-44,Man,Special Diet,Less than 1200,Build Muscle ,Nut Free,Sedentary 
+64,anonymous,Over 45,Man,Fast Food ,More  than 2500,Eat Healthier ,None,Sedentary 
+65,anonymous,18-24,Woman,Healthy ,Less than 1200,Build Muscle ,None,Moderately Active
+66,anonymous,35-44,Woman,Special Diet,Less than 1200,Gain weight ,Gluten-free,Lightly Active 
+67,anonymous,18-24,Man,Fast Food ,More  than 2500,Gain weight ,Soy Free,Sedentary 
+68,anonymous,18-24,Man,Healthy ,1800-2500,Eat Healthier ,Soy Free,Sedentary 
+69,anonymous,25-34,Woman,Special Diet,Less than 1200,Build Muscle ,Lactose Free,Very Active
+70,anonymous,25-34,Man,Special Diet,1200-1800,Loose weight,Soy Free,Lightly Active 
+71,anonymous,35-44,Man,Moderately healthy ,1800-2500,Loose weight,Gluten-free,Lightly Active 
+72,anonymous,18-24,Woman,Moderately healthy ,1200-1800,Loose weight,None,Very Active
+73,anonymous,25-34,Man,Moderately healthy ,1800-2500,Loose weight,Soy Free,Lightly Active 
+74,anonymous,18-24,Woman,Healthy ,1200-1800,Build Muscle ,Nut Free,Sedentary 
+75,anonymous,35-44,Man,Special Diet,1200-1800,Loose weight,Nut Free,Lightly Active 
+76,anonymous,25-34,Woman,Special Diet,More  than 2500,Gain weight ,Soy Free,Lightly Active 
+77,anonymous,35-44,Woman,Moderately healthy ,1800-2500,Build Muscle ,Lactose Free,Sedentary 
+78,anonymous,Over 45,Woman,Moderately healthy ,More  than 2500,Build Muscle ,Soy Free,Lightly Active 
+79,anonymous,35-44,Man,Healthy ,1200-1800,Eat Healthier ,None,Moderately Active
+80,anonymous,25-34,Woman,Special Diet,1800-2500,Build Muscle ,Nut Free,Lightly Active 
+81,anonymous,Over 45,Man,Moderately healthy ,1800-2500,Build Muscle ,Lactose Free,Sedentary 
+82,anonymous,25-34,Woman,Special Diet,Less than 1200,Loose weight,None,Moderately Active
+83,anonymous,18-24,Woman,Healthy ,1800-2500,Build Muscle ,Gluten-free,Very Active
+84,anonymous,Over 45,Man,Fast Food ,More  than 2500,Eat Healthier ,None,Sedentary 
+85,anonymous,25-34,Man,Moderately healthy ,1800-2500,Gain weight ,Nut Free,Moderately Active
+86,anonymous,18-24,Woman,Healthy ,Less than 1200,Loose weight,Gluten-free,Sedentary 
+87,anonymous,25-34,Man,Moderately healthy ,1200-1800,Gain weight ,Lactose Free,Lightly Active 
+88,anonymous,35-44,Man,Special Diet,1800-2500,Build Muscle ,Nut Free,Moderately Active
+89,anonymous,Over 45,Man,Fast Food ,More  than 2500,Eat Healthier ,None,Very Active
+90,anonymous,25-34,Woman,Moderately healthy ,1800-2500,Gain weight ,Nut Free,Moderately Active
+91,anonymous,Over 45,Woman,Fast Food ,More  than 2500,Loose weight,None,Very Active
+92,anonymous,18-24,Woman,Moderately healthy ,1200-1800,Build Muscle ,None,Lightly Active 
+93,anonymous,18-24,Woman,Healthy ,Less than 1200,Loose weight,Gluten-free,Sedentary 
+94,anonymous,25-34,Man,Moderately healthy ,1200-1800,Gain weight ,Lactose Free,Moderately Active
+95,anonymous,35-44,Woman,Special Diet,1800-2500,Build Muscle ,Soy Free,Moderately Active
+96,anonymous,Over 45,Woman,Fast Food ,1800-2500,Build Muscle ,Gluten-free,Moderately Active
+97,anonymous,18-24,Man,Moderately healthy ,1200-1800,Loose weight,None,Sedentary 
+98,anonymous,25-34,Man,Moderately healthy ,1200-1800,Gain weight ,Lactose Free,Lightly Active 
+99,anonymous,25-34,Man,Special Diet,1800-2500,Loose weight,Soy Free,Lightly Active 
+100,anonymous,25-34,Man,Moderately healthy ,More  than 2500,Eat Healthier ,None,Very Active
+101,anonymous,18-24,Man,Fast Food ,More  than 2500,Build Muscle ,Soy Free,Moderately Active
+102,anonymous,18-24,Woman,Special Diet,Less than 1200,Loose weight,Lactose Free,Very Active
+103,anonymous,35-44,Woman,Healthy ,1200-1800,Eat Healthier ,Gluten-free,Lightly Active 
+104,anonymous,25-34,Man,Moderately healthy ,1800-2500,Loose weight,Lactose Free,Lightly Active 
+105,anonymous,35-44,Man,Moderately healthy ,Less than 1200,Loose weight,Gluten-free,Sedentary 
+106,anonymous,25-34,Man,Fast Food ,1200-1800,Loose weight,Soy Free,Sedentary 
+107,anonymous,Over 45,Man,Healthy ,Less than 1200,Loose weight,Gluten-free,Sedentary 
+108,anonymous,18-24,Man,Healthy ,1200-1800,Build Muscle ,None,Very Active
+109,anonymous,18-24,Woman,Moderately healthy ,1800-2500,Build Muscle ,Nut Free,Moderately Active
+110,anonymous,18-24,Man,Moderately healthy ,1200-1800,Eat Healthier ,None,Moderately Active
