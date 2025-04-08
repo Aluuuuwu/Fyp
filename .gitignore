@@ -1,0 +1,27 @@
+#py
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Jupyter
+.ipynb_checkpoints/
+
+# S 
+.vscode/
+*.code-workspace
+
+# Environment & Secrets
+.env
+*.env
+
+# Node
+node_modules/
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
