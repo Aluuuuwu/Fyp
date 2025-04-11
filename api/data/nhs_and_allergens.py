@@ -19,7 +19,6 @@ eatwell_categories = {
     "drinks": ["water", "tea", "coffee", "juice", "smoothie"]
 }
 
-#---------------------------------------------------------------------------------------------------------------------------
 def assign_eatwell_category(ingredients):
     categories = []
     for category, keywords in eatwell_categories.items():
@@ -31,11 +30,10 @@ def assign_eatwell_category(ingredients):
 data['eatwell_category'] = data['ingredients_list'].apply(assign_eatwell_category)
 
 
-#=------------------------------------------------------------------------------------------------------------------------------
+
 #Allergerns 
 allergens = {
     "peanuts": ["peanut", "peanuts"],
-    "tree_nuts": ["almond", "walnut", "pecan", "cashew", "hazelnut", "pistachio", "macadamia"],
     "milk": ["milk", "cheese", "butter", "yogurt", "cream", "buttermilk", "ghee"],
     "eggs": ["egg", "eggs"],
     "fish": ["salmon", "tuna", "cod", "tilapia", "shrimp", "crab", "lobster", "clam", "mussel"],
@@ -44,7 +42,6 @@ allergens = {
     "wheat_gluten": ["wheat", "gluten", "flour", "bread", "pasta", "noodles", "cereal", "cracker"],
     "sesame": ["sesame", "tahini"]
 }
-#=------------------------------------------------------------------------------------------------------------------------------
 
 
 # Detect allergens

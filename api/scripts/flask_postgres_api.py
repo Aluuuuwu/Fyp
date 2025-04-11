@@ -85,7 +85,7 @@ def login():
 @app.route('/submit-profile', methods=['POST'])
 def submit_profile():
     data = request.get_json()
-    required_fields = ["age", "foodType", "calories", "goal", "allergies", "activity"]
+    required_fields = ["age", "gender", "calories", "goal", "allergies", "activity"]
 
     if not all(field in data for field in required_fields):
         return jsonify({"message": "Missing fields in the profile data"}), 400
@@ -93,7 +93,7 @@ def submit_profile():
     # Save user profile
     profile = UserProfile(
         age=data['age'],
-        food_type=data['foodType'],
+        gender=data['gender'],
         calories=data['calories'],
         goal=data['goal'],
         allergies=data['allergies'],

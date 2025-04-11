@@ -10,6 +10,7 @@ import requests
 from PIL import Image 
 from io import BytesIO
 import webbrowser
+from kmeans import get_similar_foods
 
 print("matplotlib imported successfully")
 #Dataloading and preprocessing 
@@ -56,9 +57,9 @@ df.drop(columns=["What types of food do you normally eat?"], inplace=True)
 X = df.drop(columns=["target"])
 y = df["target"]
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=12)
 
-dt_model = DecisionTreeClassifier(max_depth=5, random_state=42)
+dt_model = DecisionTreeClassifier(max_depth=5, random_state=12)
 dt_model.fit(X_train, y_train)
 
 y_pred = dt_model.predict(X_test)
@@ -83,13 +84,18 @@ joblib.dump(dt_model, "decision_tree_model.pkl")
 #plt.title("Confusion Matrix")
 #plt.show()
 
-# Visualize the decision tree
-#plt.figure(figsize=(20, 10))
-#plot_tree(dt_model, filled=True, feature_names=X.columns, class_names=target_le.classes_)
-#plt.title("Decision Tree Visualization")
-#plt.show()
-
-#Recommendation Function
+#Visualize the decision tree
+# plt.figure(figsize=(20, 10))
+# plot_tree(
+#     dt_model,
+#     filled=True,
+#     feature_names=X.columns,
+#     class_names=target_le.classes_,
+#     #max_depth=2  
+# )
+# plt.title("Decision Tree Visualization (First Three Levels)")
+# plt.show()
+# #Recommendation Function
 
 recipes = pd.read_csv(r"C:\Users\Alaukikk\Desktop\FYP\api\data\health_categorized_recipes.csv")
 
@@ -136,57 +142,10 @@ def download_images_and_preview(df):
             print(f"Could not download image for {row['recipe_name']}: {e}")
     return image_paths 
  
-
-def recommend_food_old(user_input):
-    model = joblib.load("decision_tree_model.pkl")
-
-    features = [
-        age_mapping.get(user_input['age'].lower(), 0),
-        gender_map.get(user_input['gender'].lower(), 0),
-        calorie_map.get(user_input['calories'].lower(), 1),
-        goal_map.get(user_input['goal'].lower(), 0),
-        allergy_map.get(user_input['allergies'].lower(), 0),
-        activity_map.get(user_input['activity'].lower(), 0)
-    ]
-
-    predicted_class = model.predict([features])[0]
-    predicted_type = target_le.inverse_transform([predicted_class])[0]
-
-    allergy_keywords = user_input['allergies'].lower().replace(" free", "").split(",")
-    filtered = recipes[
-        (recipes['health_category'].str.lower() == predicted_type.lower())
-    ]
-
-    shown = 0
-    displayed_recipes = []
-    image_paths = []
-
-    for _, row in filtered.iterrows():
-        ingredients = str(row['ingredients_list']).lower()
-
-        if any(allergen.strip() in ingredients for allergen in allergy_keywords):
-            substituted = substitute_ingredients(ingredients, allergy_keywords)
-            print(f"{row['recipe_name']} (contains allergen)\n   Suggested substitution: {substituted}\n")
-        else:
-            print(f"{row['recipe_name']} — Calories: {row['calories']}, Protein: {row['protein']}")
-            displayed_recipes.append(row)
-
-        shown += 1
-        if shown >= 5:
-            break
-        return 
-
-    # Download and open images directly in working directory
-    
-    if displayed_recipes:
-        image_df = pd.DataFrame(displayed_recipes)
-        image_paths = download_images_and_preview(image_df)
-
-    return image_paths  
-#===========================
 def recommend_food(user_input):
     model = joblib.load("decision_tree_model.pkl")
 
+    # Prepare input features from user response
     features = [
         age_mapping.get(user_input['age'].lower(), 0),
         gender_map.get(user_input['gender'].lower(), 0),
@@ -196,14 +155,18 @@ def recommend_food(user_input):
         activity_map.get(user_input['activity'].lower(), 0)
     ]
 
+    # Predict food type
+    print("Feature Vector:" , features)
     predicted_class = model.predict([features])[0]
     predicted_type = target_le.inverse_transform([predicted_class])[0]
 
+    # Filter recipes based on predicted type
     allergy_keywords = user_input['allergies'].lower().replace(" free", "").split(",")
     filtered = recipes[
         (recipes['health_category'].str.lower() == predicted_type.lower())
     ]
 
+    # Select top 5 matching recipes
     shown = 0
     displayed_recipes = []
 
@@ -221,19 +184,48 @@ def recommend_food(user_input):
         if shown >= 5:
             break
 
-    image_paths = []
-    recipe_list = []
-    
+    # Convert to list of dictionaries for API/json
+    recipe_list = [row.to_dict() for row in displayed_recipes]
+
+    # Download and preview images
     if displayed_recipes:
         image_df = pd.DataFrame(displayed_recipes)
-        image_paths = download_images_and_preview(image_df)  # Fetch image paths
+        image_paths = download_images_and_preview(image_df)
+    else:
+        image_paths = []
 
-        # Prepare list of recipes as dicts
-        recipe_list = [row.to_dict() for row in displayed_recipes]
+    # Use KMeans to get similar recommendations
+    top5_titles = [row['recipe_name'] for row in displayed_recipes]
+    similar_recs = get_similar_foods(top5_titles)
 
+    # Print for debugging/console preview
+    print("Top 5 Recommended Recipes:")
+    for r in recipe_list:
+        print(f"- {r['recipe_name']} (Calories: {r.get('calories', 'N/A')}, Protein: {r.get('protein', 'N/A')})")
 
-    return recipe_list # Return JSON string
+    print("Similar Food: ")
+    for r in similar_recs:
+        print(f"- {r['recipe_name']} (Cluster-based match)")
+
+    # Final return for use in app or API
+    return {
+        "recommended": recipe_list,
+        "images": image_paths,
+        "similar_options": similar_recs
+    }
+
 
 # ------------------------
 # User Testing
 # ------------------------
+user_input = {
+    "age": "25-34",
+    "gender": "male",
+    "calories": "1200-1800",
+    "goal": "eat healthier",
+    "allergies": "soy free",
+    "activity": "sedentary"
+}
+recommend_food(user_input)
+
+

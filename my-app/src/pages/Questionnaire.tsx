@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { useForm } from 'react-hook-form';
 import FadeIn from '@/components/ui/fade-in';
+import { toTitleCase } from '@/lib/utils';
 
 interface Question {
   id: string;
@@ -37,14 +38,13 @@ const questions: Question[] = [
     type: 'radio',
   },
   {
-    id: 'foodType',
-    title: 'What type of food do you prefer?',
+    id: 'gender',
+    title: 'What is your gender?',
     description: 'This helps us recommend meals that match your preferences.',
     options: [
-      { value: 'healthy', label: 'Healthy' },
-      { value: 'moderately', label: 'Moderately Healthy' },
-      { value: 'special', label: 'Special Diet' },
-      { value: 'fast', label: 'Fast Food' },
+      { value: 'male', label: 'Male' },
+      { value: 'female', label: 'Female' },
+
     ],
     type: 'radio',
   },
@@ -104,7 +104,7 @@ const Questionnaire = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({
     age: '',
-    foodType: '',
+    gender: '',
     calories: '',
     goal: '',
     allergies: [],
@@ -136,12 +136,12 @@ const Questionnaire = () => {
 
     const payload = {
       age: answers.age,
-      gender: 'unspecified',
+      gender: answers.gender,
       calories: answers.calories,
       goal: answers.goal,
       allergies: Array.isArray(answers.allergies) ? answers.allergies.join(', ') : answers.allergies,
       activity: answers.activity,
-      foodType: answers.foodType,
+
     };
 
     try {
@@ -155,7 +155,8 @@ const Questionnaire = () => {
       });
 
       const data = await response.json();
-      setRecommendations(data);
+      setRecommendations(data.recommended);
+      
     } catch (error) {
       toast({
         title: 'Network error',
@@ -300,12 +301,23 @@ const Questionnaire = () => {
             <h2 className="text-xl font-bold text-center mb-4">Recommended Meals</h2>
             <div className="flex overflow-x-scroll gap-4">
               {recommendations.map((item, index) => (
-                <img
-                  key={index}
-                  src={item.image_url}
-                  alt={item.recipe_name}
-                  className="w-48 h-32 object-cover rounded shadow"
-                />
+                <div key={index} className="flex flex-col">
+
+                  <img
+                    src={item.image_url}
+                    alt={item.recipe_name}
+                    className="w-48 h-32 object-cover rounded shadow"
+                  />
+                  <h4>{item.recipe_name}</h4>
+                  {
+                    ["calories", "carbohydrates", "cholestrol", "fat", "fiber", "protein", "sodium"]
+                    .map((key, index) => (
+                      <div key={index} className='flex flex-row'>
+                        <h6>{toTitleCase(key)}: </h6>{item[key]}
+                      </div>
+                    ))
+                  }
+                </div>
               ))}
             </div>
           </div>

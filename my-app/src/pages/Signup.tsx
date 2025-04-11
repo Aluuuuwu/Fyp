@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Check } from 'lucide-react';
@@ -25,21 +24,47 @@ const Signup = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    toast({
-      title: "Account created successfully!",
-      description: "Now let's set up your profile preferences.",
-    });
-    
-    // Navigate to the questionnaire
-    navigate('/questionnaire');
+
+    try {
+      const response = await fetch('http://127.0.0.1:5000/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: email,
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Account created successfully!",
+          description: "Now let's set up your profile preferences.",
+        });
+        navigate('/questionnaire');
+      } else {
+        toast({
+          title: "Signup failed",
+          description: data.message || "Something went wrong.",
+          variant: 'destructive',
+        });
+      }
+    } catch (error) {
+      console.error('Signup error:', error);
+      toast({
+        title: "Network error",
+        description: "Unable to reach the server.",
+        variant: 'destructive',
+      });
+    }
   };
 
   const passwordStrength = password.length > 0 ? (
-    password.length < 8 ? 'weak' : 
-    /[A-Z]/.test(password) && /[a-z]/.test(password) && /[0-9]/.test(password) ? 'strong' : 'medium'
+    password.length < 8 ? 'weak' :
+      /[A-Z]/.test(password) && /[a-z]/.test(password) && /[0-9]/.test(password) ? 'strong' : 'medium'
   ) : null;
 
   return (
@@ -56,7 +81,7 @@ const Signup = () => {
               </span>
             </Link>
           </div>
-          
+
           <Card className="border-none shadow-lg">
             <CardHeader className="space-y-1 text-center">
               <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
@@ -68,9 +93,9 @@ const Signup = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="fullName">Full Name</Label>
-                  <Input 
-                    id="fullName" 
-                    placeholder="John Smith" 
+                  <Input
+                    id="fullName"
+                    placeholder="John Smith"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
@@ -78,10 +103,10 @@ const Signup = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="name@example.com" 
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="name@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -113,19 +138,21 @@ const Signup = () => {
                   {passwordStrength && (
                     <div className="flex items-center mt-2">
                       <div className="h-1 flex-1 bg-gray-200 rounded-full overflow-hidden">
-                        <div 
-                          className={`h-full rounded-full ${
-                            passwordStrength === 'weak' ? 'bg-red-500 w-1/3' : 
-                            passwordStrength === 'medium' ? 'bg-yellow-500 w-2/3' : 
-                            'bg-green-500 w-full'
-                          }`}
+                        <div
+                          className={`h-full rounded-full ${passwordStrength === 'weak'
+                            ? 'bg-red-500 w-1/3'
+                            : passwordStrength === 'medium'
+                              ? 'bg-yellow-500 w-2/3'
+                              : 'bg-green-500 w-full'
+                            }`}
                         />
                       </div>
-                      <span className={`ml-2 text-xs ${
-                        passwordStrength === 'weak' ? 'text-red-500' : 
-                        passwordStrength === 'medium' ? 'text-yellow-500' : 
-                        'text-green-500'
-                      }`}>
+                      <span className={`ml-2 text-xs ${passwordStrength === 'weak'
+                        ? 'text-red-500'
+                        : passwordStrength === 'medium'
+                          ? 'text-yellow-500'
+                          : 'text-green-500'
+                        }`}>
                         {passwordStrength.charAt(0).toUpperCase() + passwordStrength.slice(1)}
                       </span>
                     </div>
@@ -157,10 +184,12 @@ const Signup = () => {
                   <Separator className="w-full" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+                  <span className="bg-background px-2 text-muted-foreground">
+                    Or continue with
+                  </span>
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <Button variant="outline" className="w-full font-medium">
                   Google
